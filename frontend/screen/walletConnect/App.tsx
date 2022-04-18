@@ -5,7 +5,7 @@ import {
   useMoralisWeb3Api,
   useMoralisWeb3ApiCall,
 } from 'react-moralis';
-import {useWalletConnect} from './screen/walletConnect';
+import {useWalletConnect} from '.';
 
 const styles = StyleSheet.create({
   center: {alignItems: 'center', justifyContent: 'center', flex: 1},

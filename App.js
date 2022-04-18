@@ -9,7 +9,7 @@ import Assets from './frontend/screen/assets';
 import Notifications from './frontend/screen/notification';
 import Transfer from './frontend/screen/transfer';
 import User from './frontend/screen/user';
-import Wallet from './frontend/screen/walletConnect';
+import Wallet from './frontend/screen/walletConnect/AppWithProviders';
 
 //component
 
@@ -94,9 +94,9 @@ const App = () => {
         }}
       >
         <Stack.Screen name="Main" component={MainTabScreen} />
+        <Stack.Screen name="Wallet" component={Wallet} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
 export default App;

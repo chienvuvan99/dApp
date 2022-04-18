@@ -2,10 +2,9 @@ import React from 'react';
 import {MoralisProvider} from 'react-moralis';
 import Moralis from 'moralis/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {enableViaWalletConnect} from './Moralis/enableViaWalletConnect';
-import WalletConnectProvider, {
-  WalletConnectProviderProps,
-} from './screen/walletConnect';
+import {enableViaWalletConnect} from '../../Moralis/enableViaWalletConnect';
+import {WalletConnectProviderProps} from '../walletConnect/types';
+import WalletConnectProvider from '../walletConnect/providers/WalletConnectProvider';
 import {Platform} from 'react-native';
 import Qrcode from './Qrcode';
 
