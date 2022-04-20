@@ -6,7 +6,6 @@ import {
   useMoralisWeb3ApiCall,
 } from 'react-moralis';
 import {useWalletConnect} from '.';
-
 const styles = StyleSheet.create({
   center: {alignItems: 'center', justifyContent: 'center', flex: 1},
   topCenter: {alignItems: 'center'},
@@ -18,8 +17,9 @@ const styles = StyleSheet.create({
 });
 
 function Web3ApiExample(): JSX.Element {
-  const {Moralis, user} = useMoralis();
+  const {Moralis, user, web3} = useMoralis();
   const chainNAme = 'eth';
+
   const {
     account: {getNativeBalance},
   } = useMoralisWeb3Api();
@@ -81,8 +81,19 @@ function App(): JSX.Element {
     isAuthenticated,
     logout,
     Moralis,
+    web3,
+    user,
   } = useMoralis();
-
+  const getBalances = () => {
+    web3.eth
+      ?.getBalance(user?.get('ethAddress'))
+      .then(res => {
+        console.info('Balance', res);
+      })
+      .catch(err => {
+        console.info('ERR', err);
+      });
+  };
   return (
     <View style={[StyleSheet.absoluteFill, styles.white]}>
       <View style={[styles.white, styles.center]}>
@@ -130,6 +141,17 @@ function App(): JSX.Element {
           <View>
             <UserExample />
             <Web3ApiExample />
+            <Button
+              style={{
+                width: 200,
+                backgroundColor: 'green',
+                borderWidth: 2,
+                margin: 5,
+                borderColor: '#00F',
+              }}
+              onPress={getBalances}
+              title="Balance"
+            ></Button>
           </View>
         )}
       </View>

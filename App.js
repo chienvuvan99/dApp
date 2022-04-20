@@ -24,6 +24,10 @@ import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+if (__DEV__) {
+  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+}
+
 const MainTabScreen = () => {
   return (
     <Tab.Navigator
